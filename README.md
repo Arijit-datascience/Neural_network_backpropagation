@@ -14,7 +14,11 @@ To update the network, we calculate gradients w.r.t. each weights in every layer
 We simply calculate gradient of cost function w.r.t. the weight and multiply with the learning rate. Then the previous weight is subtracted by this learning rate gradient factor.
 ![image](https://user-images.githubusercontent.com/65554220/119844436-0d6f6a00-bf26-11eb-9fad-986fccb1099e.png)
 
-Below image shows 
+Below image shows the effect of learning rates on convergence.
+As the learning rate is increased the convergence becomes faster. As the learning rate increase, there will be a point where loss stops decreasing and starts increasing.
+We should select learning rate such that the losses are minimized and converge at global minima faster.
+In this example, we do not have any very high learning rate. Learning rate of 0.1 is too low in this case whereas 2 is a very good learning rate from the curves.  
+
 ![learning rate](https://user-images.githubusercontent.com/65554220/119846043-6a1f5480-bf27-11eb-8487-4cf95a00d3d8.JPG)
 
 The below screenshot is from the excel file "Back Propagation.xlsx" in the repository.
