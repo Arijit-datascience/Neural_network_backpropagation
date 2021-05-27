@@ -11,53 +11,41 @@ Our aim is to optimize the cost function. This is done by adjusting the weights 
 To update the network, we calculate gradients w.r.t. each weights in every layer.
 
 ### Network Architechture:
-There are two inputs: i1 and i2
-Targets: t1 and t2
-hidden layer nodes: h1 and h2
-activation functions in hidden layers: a_h1 and a_h2
-outputs: o1 and o2
-activation functions in output layers: a_o1 and a_o2
-errors: E1 and E2
-weights: w1, w2, w3, w4, w5, w6, w7 and w8
+There are two inputs: i1 and i2  
+Targets: t1 and t2  
+hidden layer nodes: h1 and h2  
+activation functions in hidden layers: a_h1 and a_h2  
+outputs: o1 and o2  
+activation functions in output layers: a_o1 and a_o2  
+errors: E1 and E2  
+weights: w1, w2, w3, w4, w5, w6, w7 and w8  
 
 ![feedforward](https://user-images.githubusercontent.com/65554220/119848614-94721180-bf29-11eb-91e7-989e09bb1d98.JPG)
 
 ### Feed Forward Calculations:
 #### Hidden layer:
-h1 is getting input from i1 and i2 connected with w1 and w2 respectively. The hidden layer is calculated as below:
-
-h1 = w1*i1 + w2*i2
-
-Similarly, h2 is calculated as:
-
-h2 = w3*i1 + w4*i2
+h1 is getting input from i1 and i2 connected with w1 and w2 respectively. The hidden layer is calculated as below:  
+h1 = w1*i1 + w2*i2  
+Similarly, h2 is calculated as:  
+h2 = w3*i1 + w4*i2  
 
 #### Activation function at hidden layer:
-In this example we are using sigmoid as the activation function.
-
-a_h1 = 𝜎(h1) = 1/(1 + exp(-h1))
-
-Similarly, a_h2 is calculated as:
-
-a_h2 = 𝜎(h2)
+In this example we are using sigmoid as the activation function.  
+a_h1 = 𝜎(h1) = 1/(1 + exp(-h1))  
+Similarly, a_h2 is calculated as:  
+a_h2 = 𝜎(h2)  
 
 #### Output layer:
-o1 is getting input from a_h1 and a_h2 connected with w5 and w6 respectively. The output layer is calculated as below:
-
-o1 = w5*a_h1 + w6*a_h2
-
-Similarly, o2 is calculated as:
-
-o2 = w7*a_h1 + w8*a_h2
+o1 is getting input from a_h1 and a_h2 connected with w5 and w6 respectively. The output layer is calculated as below:  
+o1 = w5*a_h1 + w6*a_h2  
+Similarly, o2 is calculated as:  
+o2 = w7*a_h1 + w8*a_h2  
 
 #### Activation function at output layer:
-In this example we are using sigmoid as the activation function.
-
-a_o1 = 𝜎(o1) = 1/(1 + exp(-o1))
-
-Similarly, a_o2 is calculated as:
-
-a_o2 = 𝜎(o2)
+In this example we are using sigmoid as the activation function.  
+a_o1 = 𝜎(o1) = 1/(1 + exp(-o1))  
+Similarly, a_o2 is calculated as:  
+a_o2 = 𝜎(o2)  
 
 #### Error calculations:
 E1 = 1/2 * (t1 - a_o1)^2
