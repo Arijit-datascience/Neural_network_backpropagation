@@ -1,5 +1,11 @@
 # Neural Network Feedforward and Backpropagation
 
+## Part 1 - Backpropagation Steps:
+
+### Introduction:
+
+
+
 The below screenshot is from the excel file "Back Propagation.xlsx" in the repository.
 This shows how feed forward network and back propagation works.
 
