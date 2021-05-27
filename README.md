@@ -12,13 +12,13 @@ To update the network, we calculate gradients w.r.t. each weights in every layer
 
 ### Weight updation in next iteration
 We simply calculate gradient of cost function w.r.t. the weight and multiply with the learning rate. Then the previous weight is subtracted by this learning rate gradient factor.
-𝜔_𝑖^𝐿=𝜔_𝑖^(𝐿−1)−𝐿𝑅∗∂𝑐/(∂𝜔_𝑖 )
 ![image](https://user-images.githubusercontent.com/65554220/119844436-0d6f6a00-bf26-11eb-9fad-986fccb1099e.png)
 
+Below image shows 
+![learning rate](https://user-images.githubusercontent.com/65554220/119846043-6a1f5480-bf27-11eb-8487-4cf95a00d3d8.JPG)
 
 The below screenshot is from the excel file "Back Propagation.xlsx" in the repository.
 This shows how feed forward network and back propagation works.
 
 ![neural_network_feedforward_backpropagation](https://user-images.githubusercontent.com/65554220/119373201-cb4fe980-bcd5-11eb-82a4-01ef1e6cc6d0.JPG)
 
-![learning rate](https://user-images.githubusercontent.com/65554220/119374486-41a11b80-bcd7-11eb-841d-f736e663c658.JPG)
