@@ -23,23 +23,48 @@ weights: w1, w2, w3, w4, w5, w6, w7 and w8
 ![feedforward](https://user-images.githubusercontent.com/65554220/119848614-94721180-bf29-11eb-91e7-989e09bb1d98.JPG)
 
 ### Feed Forward Calculations:
-<u>Hidden layer:</u> 
+#### Hidden layer:
 h1 is getting input from i1 and i2 connected with w1 and w2 respectively. The hidden layer is calculated as below:
+
 h1 = w1*i1 + w2*i2
+
 Similarly, h2 is calculated as:
+
 h2 = w3*i1 + w4*i2
 
-<u>Activation function:</u>
+#### Activation function at hidden layer:
 In this example we are using sigmoid as the activation function.
-a_h1 = 𝜎(h1) = 1/(1 + exp(-h))
+
+a_h1 = 𝜎(h1) = 1/(1 + exp(-h1))
+
 Similarly, a_h2 is calculated as:
+
 a_h2 = 𝜎(h2)
 
-<u>Output layer:</u>
+#### Output layer:
 o1 is getting input from a_h1 and a_h2 connected with w5 and w6 respectively. The output layer is calculated as below:
+
 o1 = w5*a_h1 + w6*a_h2
+
 Similarly, o2 is calculated as:
+
 o2 = w7*a_h1 + w8*a_h2
+
+#### Activation function at output layer:
+In this example we are using sigmoid as the activation function.
+
+a_o1 = 𝜎(o1) = 1/(1 + exp(-o1))
+
+Similarly, a_o2 is calculated as:
+
+a_o2 = 𝜎(o2)
+
+#### Error calculations:
+E1 = 1/2 * (t1 - a_o1)^2
+
+E2 = 1/2 * (t2 - a_o2)^2
+
+E_total = E1 + E2
 
 
 ### Weight updation in next iteration
