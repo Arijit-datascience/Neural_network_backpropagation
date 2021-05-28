@@ -1,7 +1,5 @@
 # Neural Network Feedforward and Backpropagation
 
-## Part 1 - Backpropagation Steps:
-
 ### Introduction:
 Neural Network consists of neurons and connections between these neurons called weights and some biases connected to each neuron.
 We move forward through the network called the forward pass, we iteratively use a formula to calculate each neuron in the next layer.
@@ -105,6 +103,4 @@ The below screenshot is from the excel file "Back Propagation.xlsx" in the repos
 This shows how feed forward network and back propagation works.
 
 ![neural_network_feedforward_backpropagation](https://user-images.githubusercontent.com/65554220/119373201-cb4fe980-bcd5-11eb-82a4-01ef1e6cc6d0.JPG)
-
-## Part 2 - MNIST Digit Recognition:
 
