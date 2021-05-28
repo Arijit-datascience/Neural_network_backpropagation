@@ -48,12 +48,47 @@ Similarly, a_o2 is calculated as:
 a_o2 = 𝜎(o2)  
 
 #### Error calculations:
-E1 = 1/2 * (t1 - a_o1)^2
-
-E2 = 1/2 * (t2 - a_o2)^2
-
+E1 = 1/2 * (t1 - a_o1)^2  
+E2 = 1/2 * (t2 - a_o2)^2  
 E_total = E1 + E2
 
+### Back Propagation Calculations:
+
+#### Back pass from output to hidden layer:
+We have to calculate gradients of cost function E_Total w.r.t. all weights from output to hidden layer we have four weights w5, w6, w7 and w8.  
+
+𝜕E_Total/𝜕w5 = 𝜕(E1 + E2)/𝜕w5  
+Since, E2 is not connected to w5 the gradient across w5 will be zero.   
+𝜕E_Total/𝜕w5 = 𝜕E1/𝜕w5  
+
+Tracing the path moving backward, E1 is connected to a_o1, a_o1 connected to o1 and o1 connected to w5.   
+𝜕E_Total/𝜕w5 = 𝜕E1/𝜕w5 = 𝜕E1/𝜕a_o1 * 𝜕a_o1/𝜕o1 * 𝜕o1/𝜕w5  
+𝜕E1/𝜕a_o1 = 𝜕(1/2 * (t1 - a_o1)^2)/𝜕a_o1 = a_o1 - t1  
+𝜕a_o1/𝜕o1 = 𝜕(𝜎(o1))/𝜕o1 = a_o1 * (1 - a_o1)  
+𝜕o1/𝜕w5 = a_h1  
+
+𝜕E_Total/𝜕w5 = (a_o1 - t1) * a_o1 * (1 - a_o1) * a_h1  
+
+Similarly, gradients are calculated for w6, w7 and w8.   
+𝜕E_Total/𝜕w6 = (a_o1 - t1) * a_o1 * (1 - a_o1) * a_h2  
+𝜕E_Total/𝜕w7 = (a_o2 - t2) * a_o2 * (1 - a_o2) * a_h1  
+𝜕E_Total/𝜕w8 = (a_o2 - t2) * a_o2 * (1 - a_o2) * a_h2  
+
+#### Back pass from hidden layer to input layer:
+We have to calculate gradients of cost function E_Total w.r.t. all weights fom hidden layer to input layer we have four weights w1, w2, w3 and w4.  
+
+𝜕E_Total/𝜕w1 = 𝜕E_Total/𝜕a_h1 * 𝜕a_h1/𝜕h1 * 𝜕h1/𝜕w1  
+𝜕E1/𝜕a_h1 = (a_o1 - t1) * a_o1 * (1- a_o1) * w5  
+𝜕E2/𝜕a_h1 = (a_o2 - t2) * a_o2 * (1- a_o2) * w7  
+𝜕E_Total/𝜕a_h1 = (a_o1 - t1) * a_o1 * (1- a_o1) * w5 + (a_o2 - t2) * a_o2 * (1- a_o2) * w7  
+𝜕E_Total/𝜕a_h2 = (a_o1 - t1) * a_o1 * (1- a_o1) * w6 + (a_o2 - t2) * a_o2 * (1- a_o2) * w8  
+
+𝜕E_Total/𝜕w1 = ((a_o1 - t1) * a_o1 * (1- a_o1) * w5 + (a_o2 - t2) * a_o2 * (1- a_o2) * w7) * a_h1 * (1 - a_h1) * i1  
+
+Similarly, gradients are calculated for w2, w3 and w4.   
+𝜕E_Total/𝜕w2 = ((a_o1 - t1) * a_o1 * (1- a_o1) * w5 + (a_o2 - t2) * a_o2 * (1- a_o2) * w7) * a_h1 * (1 - a_h1) * i2  
+𝜕E_Total/𝜕w3 = ((a_o1 - t1) * a_o1 * (1- a_o1) * w6 + (a_o2 - t2) * a_o2 * (1- a_o2) * w8) * a_h2 * (1 - a_h2) * i1  
+𝜕E_Total/𝜕w4 = ((a_o1 - t1) * a_o1 * (1- a_o1) * w6 + (a_o2 - t2) * a_o2 * (1- a_o2) * w8) * a_h2 * (1 - a_h2) * i2  
 
 ### Weight updation in next iteration
 We simply calculate gradient of cost function w.r.t. the weight and multiply with the learning rate. Then the previous weight is subtracted by this learning rate gradient factor.
